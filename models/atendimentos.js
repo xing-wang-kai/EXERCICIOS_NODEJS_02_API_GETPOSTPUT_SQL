@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const moment = require('moment');
 const conexao = require('../infroestrutura/conexao');
 
@@ -10,10 +11,10 @@ class Atendimento{
         const sql = 'INSERT INTO atendimentos SET ?';
         conexao.query(sql, atendimentoDatacria, (error, resultados) => {
             if(error){
-                console.log(error)
+                res.status(400).json(error)
             }
             else{
-                console.log(resultados)
+                res.status(200).json(resultados)
             }
         })
     }
