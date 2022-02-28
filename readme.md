@@ -11,17 +11,17 @@
 -----------------------------------------------------------------------------------------
 ## 3 ) npm install express
 
--   para instalar o express [gerencia todos caminhos para ultilizar os POST GET PUT e DELETE]
+-   para instalar o express //gerencia todos caminhos para ultilizar os POST GET PUT e DELETE//
 -   então adicina o express ao pacote.
 
 -----------------------------------------------------------------------------------------
 ## 4 ) instalndo nodemon somente em dev
-    -mpm install save-dev nodemon [faz nosso servidor atualizar constatemente ser ter que derrubar]
+    -mpm install save-dev nodemon // faz nosso servidor atualizar constatemente ser ter que derrubar
 
 -----------------------------------------------------------------------------------------
 ## 5 ) instalando Consign
-    -npm install consign [esta bibliotéca ajuda a criar novas rotas e salvar em arq separados.]
-    -npm install body-parser [faz com que seja possivel ler JSON]
+    -npm install consign  //esta bibliotéca ajuda a criar novas rotas e salvar em arq separados.
+    -npm install body-parser //faz com que seja possivel ler JSON
 
 -----------------------------------------------------------------------------------------
 ## 6 ) instalar o MySql
@@ -47,10 +47,13 @@
 -----------------------------------------------------------------------------------------
 OBS:: quanto tentei ocorreu um erro ao tentar usar a conexão precisei ir no workbench do MySql
 e excrever o comando
-[ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';]
+
+::ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
 onde o password seria a senha que iria usar no caso hoot.
 depois rodei
-[flush privileges;]
+
+::flush privileges;
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 ## 07 ) importa o modulo conexao criado para o index.JS
@@ -112,7 +115,8 @@ depois rodei
 
 ---------------------------------------------------------------------------------------
 -npm install moment 
-    [convert a data atual para uma data do sistema.]
+    convert a data atual para uma data do sistema.
+
     - exemplo, neste caso criei uma coluna no database com o valor data do atendimento e a data que foi
     criado e então joguei esse valores para convert no moment.:
 
