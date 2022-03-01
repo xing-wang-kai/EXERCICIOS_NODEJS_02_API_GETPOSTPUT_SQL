@@ -45,7 +45,7 @@ class Atendimento{
 
         }
     }
-    
+
 //-------------------------------------------------------------------------------------------------------------
     recebe(res){
         const sql = "SELECT * FROM atendimentos";
@@ -56,6 +56,40 @@ class Atendimento{
                 res.status(200).json(resultado)
             }
 
+        })
+    }
+    buscarID(Id, res){
+        const sql = `SELECT * FROM atendimentos WHERE id = ${Id}`;
+        conexao.query(sql, (erro, resultado) => {
+            if(erro){
+                res.status(400).json(erro);
+            }else{
+                res.status(200).json(resultado);
+
+            }
+        })
+    }
+    update(id, valores, res){
+        if(valores.data){
+            valores.data = moment(valores.data, 'DD/MM/AAAA').format("YYYY-MM-DD HH:MM:SS")
+        }
+        const sql = `UPDATE atendimentos SET ? WHERE id=?`;
+        conexao.query(sql, [valores, id], (erro, resultado) => {
+            if(erro){
+                res.status(400).json(erro);
+            }else{
+                res.status(200).json(resultado);
+            }
+        })
+    }
+    deletar(id, res){
+        const sql = "DELETE FROM atendimentos WHERE id=?"
+        conexao.query(sql, id, (erro, resultado) =>{
+            if(erro){
+                res.status(400).json(erro);
+            }else{
+                res.status(200).json(resultado);
+            }
         })
     }
 }

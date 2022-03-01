@@ -1,6 +1,6 @@
 # Rest com NodeJS: API com Express e MySQL
 
-## primeiro npm init -y
+## 1 ) primeiro npm init -y
 
 -desta maneira será instalada todos inicios do projeto
 
@@ -46,14 +46,14 @@
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 OBS:: quanto tentei ocorreu um erro ao tentar usar a conexão precisei ir no workbench do MySql
-e excrever o comando
+      e excrever o comando
 
-::ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+      ::ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
-onde o password seria a senha que iria usar no caso hoot.
-depois rodei
+      onde o password seria a senha que iria usar no caso hoot.
+      depois rodei
 
-::flush privileges;
+      ::flush privileges;
 -----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
 ## 07 ) importa o modulo conexao criado para o index.JS
@@ -85,7 +85,9 @@ depois rodei
     |            this.criarAtendimento();                                                                                   |
     |        }                                                                                                              |
     |        criarAtendimento(){                                                                                            |
-    |            const sql = 'CREATE TABLE IF NOT EXISTS atendimentos (id int NOT NULL AUTO_INCREMENT, cliente varchar(50) NOT NULL, pet varchar(20), serviço varchar(20) NOT NULL, status varchar(20) NOT NULL, observacoes text, data datetime NOT NULL, datacriacao datetime NOT NULL, PRIMARY KEY(id) )'
+    |            const sql = 'CREATE TABLE IF NOT EXISTS atendimentos (id int NOT NULL AUTO_INCREMENT, cliente varchar(50)  |
+    |              NOT NULL, pet varchar(20), serviço varchar(20) NOT NULL, status varchar(20) NOT NULL, observacoes text,  |
+    |               data datetime NOT NULL, datacriacao datetime NOT NULL, PRIMARY KEY(id) )'                               |
     |            this.conexao.query(sql, (error) => {                                                                       |
     |                if (error){                                                                                            |
     |                    console.log(chalk.bgRed.black(error));                                                             |
@@ -167,7 +169,7 @@ depois rodei
     |           if(erro){                                |
     |               res.status(400).json(erro);          |
     |           }else{                                   |
-    |               res.status(200).json(resultados)      |
+    |               res.status(200).json(resultado)      |
     |           }                                        |
     |                                                    |
     |       })                                           |
