@@ -147,3 +147,31 @@ depois rodei
 
 
 ---------------------------------------------------------------------------------------
+## 10 ) tratamento de erros comuns
+
+    Nesta situação para tratar alguns erros que podem ocorrer validei as data com a bibliotéca moment
+    usando a função 'const dataEValida = moment(data)isSameOrAfter(datacriacao); caso a data de criaçao 
+    seja maior que a data atual retorna o erro exporsto no dictionário cosnt validar.'
+
+---------------------------------------------------------------------------------------
+## 11 ) Retornando os dados do SQL
+
+    Na const GET do atendimeto colodo o parametro do caminho da rota '/atendimentos' solicitado somente um res
+    este res tem como parametro o Atendimento.receber(res); dentro da Class atendimentos criei a solicitação receber()
+    com o seguinte código:
+
+    +----------------------------------------------------+
+    |   recebe(res){                                     |
+    |       const sql = "SELECT * FROM atendimentos";    |
+    |       conexao.query(sql, (erro, resultado) => {    |
+    |           if(erro){                                |
+    |               res.status(400).json(erro);          |
+    |           }else{                                   |
+    |               res.status(200).json(resultados)      |
+    |           }                                        |
+    |                                                    |
+    |       })                                           |
+    |   }                                                |
+    +----------------------------------------------------+
+
+---------------------------------------------------------------------------------------
