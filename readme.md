@@ -74,8 +74,30 @@ depois rodei
     uma funcao chamada 'criarAtendimento' criar uma const chamada sql que recebe os parametros
     para criar uma tabela direto do mysql; depois fazer um this.conexao.query e jogar o código sql
     dentro e uma arrow function definindo se error.
-
     
+    +-----------------------------------------------------------------------------------------------------------------------+
+    |    const chalk = require('chalk');                                                                                    |
+    |                                                                                                                       |
+    |    class Tabela{                                                                                                      |
+    |        init(conexao){                                                                                                 |
+    |            console.log(chalk.bgRed.black('<--------|| tabela foram criadas com sucess ||-------->'))                  |
+    |            this.conexao = conexao;                                                                                    |
+    |            this.criarAtendimento();                                                                                   |
+    |        }                                                                                                              |
+    |        criarAtendimento(){                                                                                            |
+    |            const sql = 'CREATE TABLE IF NOT EXISTS atendimentos (id int NOT NULL AUTO_INCREMENT, cliente varchar(50) NOT NULL, pet varchar(20), serviço varchar(20) NOT NULL, status varchar(20) NOT NULL, observacoes text, data datetime NOT NULL, datacriacao datetime NOT NULL, PRIMARY KEY(id) )'
+    |            this.conexao.query(sql, (error) => {                                                                       |
+    |                if (error){                                                                                            |
+    |                    console.log(chalk.bgRed.black(error));                                                             |
+    |                }else{                                                                                                 |
+    |                    console.log(chalk.bgMagenta.black('<---|| Tabela de atendimentos Criada com sucesso ||--->'))      |
+    |                }                                                                                                      |
+    |            })                                                                                                         |
+    |        }                                                                                                              |
+    |    }                                                                                                                  |
+    |                                                                                                                       |
+    |    module.exports = new Tabela;                                                                                       |
+    +-----------------------------------------------------------------------------------------------------------------------+                                 
 -----------------------------------------------------------------------------------------
 ## 09) Enviar dados para o sql
 
@@ -122,3 +144,6 @@ depois rodei
 
         const data_criacao = moment().format('YYYY-MM-DD HH:MM:SS')
         const data = moment(atendimento.data, "DD/MM/YYYY").format('YYYY-MM-DD HH:MM:SS')
+
+
+---------------------------------------------------------------------------------------
